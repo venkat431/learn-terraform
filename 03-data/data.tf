@@ -5,7 +5,6 @@ data "aws_ami" "ami" {
 }
 
 output "ami_id" {
-  Name = data
   value = data.aws_ami.ami.image_id
   #value = data.aws_ami.ami.description
 }
