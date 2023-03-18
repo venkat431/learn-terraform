@@ -13,7 +13,7 @@ resource "aws_route53_record" "frontend" {
   name    = "frontend.devops-practice.tech"
   type    = "A"
   ttl     = 30
-  records = aws_instance.frontend.private_ip
+  records = [aws_instance.frontend.private_ip]
 }
 #create mongodb component
 resource "aws_instance" "mongodb" {
@@ -30,5 +30,5 @@ resource "aws_route53_record" "mongodb" {
   name    = "mongodb.devops-practice.tech"
   type    = "A"
   ttl     = 30
-  records = aws_instance.mongodb.private_ip
+  records = [aws_instance.mongodb.private_ip]
 }
