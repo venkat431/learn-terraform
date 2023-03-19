@@ -6,12 +6,12 @@ data "aws_ami" "ami" {
 
 #create frontend component
 resource "aws_instance" "instance" {
-  for_each                  = each.instances
+  for_each                  = var.instances
   ami                    = "ami-0089b8e98cd95257d"
-  instance_type          = each.type
+  instance_type          = each.value["type"]
   vpc_security_group_ids = ["sg-055e9d45bc8da8a4d"]
   tags                   = {
-    Name = each.name
+    Name = each.value["name"]
     }
   }
 
