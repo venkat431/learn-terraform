@@ -7,7 +7,7 @@ data "aws_ami" "ami" {
 #create frontend component
 resource "aws_instance" "ec2" {
   ami = data.aws_ami.ami.image_id
-  instance_type = "t3.nano"
+  instance_type = var.instance_type
   vpc_security_group_ids = ["sg-055e9d45bc8da8a4d"]
   tags = {
     Name = var.component
@@ -24,3 +24,4 @@ resource "aws_route53_record" "record" {
 }
 
 variable "component" {}
+variable "instance_type" {}
