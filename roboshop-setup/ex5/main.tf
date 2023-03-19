@@ -11,3 +11,6 @@ module "sg" {
   source = "./sg"
 }
 
+module "route53" {
+  source = "./route53"
+}

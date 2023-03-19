@@ -6,12 +6,16 @@ data "aws_ami" "ami" {
 
 #create frontend component
 resource "aws_instance" "ec2" {
-  ami = data.aws_ami.ami.image_id
-  instance_type = var.instance_type
+  ami                    = data.aws_ami.ami.image_id
+  instance_type          = var.instance_type
   vpc_security_group_ids = [var.sg_id]
-  tags = {
+  tags                   = {
     Name = var.component
   }
+}
+
+output "ec2_private_ip" {
+  value = aws_instance.ec2.private_ip
 }
 
 variable "component" {}
