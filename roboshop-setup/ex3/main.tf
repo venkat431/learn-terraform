@@ -18,11 +18,11 @@ resource "aws_instance" "instance" {
 variable "instances" {
   default = {
     frontend = {
-      name = frontend
+      name = "frontend"
       type = "t3.nano"
     }
     mongodb = {
-      name = mongodb
+      name = "mongodb"
       type = "t3.nano"
     }
   }
