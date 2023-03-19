@@ -14,7 +14,6 @@ resource "aws_instance" "instance" {
     Name = each.name
     }
   }
-}
 
 variable "instances" {
   default = {
