@@ -12,5 +12,8 @@ module "sg" {
 }
 
 module "route53" {
-  source = "./route53"
+  for_each       = var.instances
+  source         = "./route53"
+  component      = each.value["name"]
+  ec2_private_ip = module.ec2.ec2_private_ip
 }
